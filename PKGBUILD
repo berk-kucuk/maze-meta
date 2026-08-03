@@ -24,7 +24,7 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
@@ -46,6 +46,7 @@ depends=(
   'linux-chan-ai'
   'sentinai'
   'maze-ai'
+  'maze-connect'
   # ── Curated third-party security tooling ───────────────────────────────
   'firejail'          # application sandbox
 )

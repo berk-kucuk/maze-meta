@@ -3,10 +3,10 @@
 pkgname = maze-meta
 pkgbase = maze-meta
 xdata = pkgtype=pkg
-pkgver = 1.0.0-1
+pkgver = 1.1.0-1
 pkgdesc = Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)
 url = https://mazelinux.berkkucukk.com.tr
-builddate = 1784579511
+builddate = 1785756617
 packager = Unknown Packager
 size = 0
 arch = any
@@ -24,4 +24,5 @@ depend = haze
 depend = linux-chan-ai
 depend = sentinai
 depend = maze-ai
+depend = maze-connect
 depend = firejail
