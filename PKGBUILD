@@ -25,7 +25,7 @@
 
 pkgname=maze-meta
 pkgver=1.5.0
-pkgrel=1
+pkgrel=3
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
@@ -79,7 +79,18 @@ depends=(
   'linux-lts-headers'
   # ── Curated third-party security tooling ───────────────────────────────
   'firejail'          # application sandbox
-  'said360'
+  # ── Updates ────────────────────────────────────────────────────────────
+  # paru, from [mazelinux]. Maze's own update instructions (the installer's
+  # summary, maze-doctor) say `paru -Syu`, because several default desktop
+  # apps come from the AUR and pacman alone never updates them. A machine
+  # without paru cannot follow that — and machines installed from ISOs that
+  # predate paru being in the repo may not have it. As a dependency here every
+  # Maze machine gets it, and gets it updated by pacman from now on.
+  'paru'
+  # NOT listed: said360. It is a decorative Plasma widget, not a security
+  # tool, and not part of the default Maze desktop. It stays in [mazelinux]
+  # for anyone who installs it by hand; dropping it here leaves it on machines
+  # that already have it (it simply becomes an orphan dependency).
   )
 source=()
 
