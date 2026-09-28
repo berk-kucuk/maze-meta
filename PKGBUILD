@@ -25,7 +25,7 @@
 
 pkgname=maze-meta
 pkgver=1.5.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
@@ -73,10 +73,13 @@ depends=(
   # already built and signed on the ESP. maze-sb-sign keeps mainline as the boot
   # default (it picks the highest version) and leaves every installed kernel's
   # UKI in place, so this costs one extra image on the ESP and nothing else.
-  # -headers is required: nvidia-open-dkms and broadcom-wl-dkms have to build
-  # against LTS too, or the recovery kernel comes up without graphics or wifi.
+  # No -headers here any more. NVIDIA comes prebuilt from Arch (nvidia-open /
+  # nvidia-open-lts) — maze-gpu-driver installs headers itself on the DKMS path
+  # it still uses for non-Arch kernels — and the installer keeps
+  # broadcom-wl-dkms, marking both header packages explicit, only on machines
+  # with Broadcom wireless. Depending on them here made every machine download
+  # and keep ~60 MB of LTS headers per kernel update for nothing.
   'linux-lts'
-  'linux-lts-headers'
   # ── Curated third-party security tooling ───────────────────────────────
   'firejail'          # application sandbox
   # ── Updates ────────────────────────────────────────────────────────────
