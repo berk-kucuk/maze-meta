@@ -25,7 +25,7 @@
 
 pkgname=maze-meta
 pkgver=1.5.0
-pkgrel=4
+pkgrel=5
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
@@ -55,6 +55,13 @@ depends=(
   'maze-ai'           # local models via Ollama — nothing leaves the machine
   'maze-connect'
   'maze-cloak'
+  # AI Usage widget: plan limits for coding agents (Claude Code / Desktop,
+  # Codex, Gemini CLI, Copilot, OpenCode). INSTALLED, but deliberately NOT
+  # placed on the panel by maze-plasma-config: most Maze users are not
+  # developers, so it only appears in "Add Widgets…" for those who want it.
+  # It contacts a provider only through that tool's own existing login; with
+  # nothing signed in it reads local files and stays offline.
+  'plasma6-applets-ai-usage'
   # NOT listed, on purpose: linux-chan-ai and sentinai.
   #
   # Both talk to Google Gemini. Linux Chan has no offline mode at all, and it
