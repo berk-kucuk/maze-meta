@@ -2,8 +2,9 @@
 
 The Maze Linux metapackage. It depends on every package that makes up a
 default Maze system — configuration, branding, the Secure Boot and snapshot
-machinery, the recovery kernel (`linux-lts`) and the Maze desktop apps — so a
-single `pacman -Syu` brings every Maze machine to the current default set.
+machinery, the recovery kernel (`linux-lts`), the gaming defaults
+(`maze-gaming`) and the Maze desktop apps — so a single `pacman -Syu` brings
+every Maze machine to the current default set.
 
 Adding a package to the default Maze system means adding it to `depends` here
 and bumping `pkgrel`. Publish every package it depends on to `[mazelinux]`

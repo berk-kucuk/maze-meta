@@ -24,8 +24,8 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.5.0
-pkgrel=5
+pkgver=1.7.0
+pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
 url="https://mazelinux.berkkucukk.com.tr"
@@ -55,6 +55,11 @@ depends=(
   'maze-ai'           # local models via Ollama — nothing leaves the machine
   'maze-connect'
   'maze-cloak'
+  # The app store: browses [mazelinux] and runs installs in a terminal behind
+  # `sudo -k`, so it holds no privilege of its own. Its user timer checks for
+  # Maze app updates every 6 hours — one ~15 KiB fetch from the Maze repo,
+  # nothing else leaves the machine — and can be switched off in the app.
+  'maze-store'
   # AI Usage widget: plan limits for coding agents (Claude Code / Desktop,
   # Codex, Gemini CLI, Copilot, OpenCode). INSTALLED, but deliberately NOT
   # placed on the panel by maze-plasma-config: most Maze users are not
@@ -87,6 +92,12 @@ depends=(
   # with Broadcom wireless. Depending on them here made every machine download
   # and keep ~60 MB of LTS headers per kernel update for nothing.
   'linux-lts'
+  # ── Gaming ─────────────────────────────────────────────────────────────
+  # Fast Steam shader pre-compilation, bigger shader caches, GameMode with a
+  # sched_ext gaming scheduler, ntsync, MangoHud, gamescope. No global security
+  # relaxation: anything that trades security for speed is scoped to a running
+  # game. Does NOT pull in Steam itself (the ISO lists it).
+  'maze-gaming'
   # ── Curated third-party security tooling ───────────────────────────────
   'firejail'          # application sandbox
   # ── Updates ────────────────────────────────────────────────────────────
