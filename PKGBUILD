@@ -24,7 +24,7 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.7.0
+pkgver=1.8.0
 pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
@@ -60,6 +60,11 @@ depends=(
   # Maze app updates every 6 hours — one ~15 KiB fetch from the Maze repo,
   # nothing else leaves the machine — and can be switched off in the app.
   'maze-store'
+  # The official donation addresses, always one click away in the menu. Shows
+  # an address only after gpgv has verified the signed list against the Maze
+  # package key; it touches the network only when the user asks it to check
+  # for new addresses. No service, no timer, no privilege.
+  'maze-donate'
   # AI Usage widget: plan limits for coding agents (Claude Code / Desktop,
   # Codex, Gemini CLI, Copilot, OpenCode). INSTALLED, but deliberately NOT
   # placed on the panel by maze-plasma-config: most Maze users are not
