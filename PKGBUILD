@@ -24,7 +24,7 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.8.0
+pkgver=1.9.0
 pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
@@ -65,6 +65,15 @@ depends=(
   # package key; it touches the network only when the user asks it to check
   # for new addresses. No service, no timer, no privilege.
   'maze-donate'
+  # Separate encrypted spaces for files and folders, on gocryptfs through FUSE
+  # as the user — no root, no network. Its only background piece is a user
+  # service that does nothing until logout, then locks every open capsule.
+  'maze-capsule'
+  # Password manager: a Bitwarden-compatible CLIENT for the user's own
+  # Vaultwarden (or a vault kept only on this computer). Everything is
+  # encrypted locally before it goes anywhere; it contacts only the server
+  # the user signs in to. No service, no timer, no telemetry.
+  'maze-vault'
   # AI Usage widget: plan limits for coding agents (Claude Code / Desktop,
   # Codex, Gemini CLI, Copilot, OpenCode). INSTALLED, but deliberately NOT
   # placed on the panel by maze-plasma-config: most Maze users are not
