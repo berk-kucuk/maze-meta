@@ -24,7 +24,7 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.9.0
+pkgver=1.10.0
 pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
@@ -74,6 +74,19 @@ depends=(
   # encrypted locally before it goes anywhere; it contacts only the server
   # the user signs in to. No service, no timer, no telemetry.
   'maze-vault'
+  # Metadata cleaner: shows what photos and documents reveal (GPS position,
+  # name, device serial) and removes it with mat2, which it pulls in. Writes a
+  # cleaned copy by default; replacing sends originals to the Trash. No root,
+  # no service, no network.
+  'maze-scrub'
+  # Opens a suspicious file in a sealed box: a copy, with the usual app, in an
+  # unprivileged bubblewrap sandbox with no network, no real home and no
+  # D-Bus; deleted when the app closes. No root, no service.
+  'maze-glovebox'
+  # The default terminal (QTerminal fork): paste guard, Tor and incognito
+  # tabs, OLED window. maze-plasma-config >= 1.2.6 makes it the terminal
+  # Dolphin, KRunner and Ctrl+Alt+T open; Konsole stays installed.
+  'maze-terminal'
   # AI Usage widget: plan limits for coding agents (Claude Code / Desktop,
   # Codex, Gemini CLI, Copilot, OpenCode). INSTALLED, but deliberately NOT
   # placed on the panel by maze-plasma-config: most Maze users are not
