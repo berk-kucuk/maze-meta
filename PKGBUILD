@@ -24,7 +24,7 @@
 # Calamares installer and must never land on an installed desktop.
 
 pkgname=maze-meta
-pkgver=1.10.0
+pkgver=1.11.0
 pkgrel=1
 pkgdesc="Maze Linux metapackage — pulls in every default Maze package (config, branding, apps, security tooling)"
 arch=('any')
